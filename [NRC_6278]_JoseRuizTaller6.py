@@ -72,13 +72,23 @@ ________________________________________________________________________________
         La condicion de los nodo es que si es falso retornara verdadero para agregar
         la llave del nodo 2 y por el valor del nodo 1
         Si dirigido es falso devolvera True para ingresar como llave el nodo2 y su valor el nodo 1 """        
-       
+        
+        #Se añade el peso y el nodo
         punto.m_agregando_lista[nodo1].add((nodo2, peso))
+        """Si en dirigido corresponde a falso retornara verdadero para ingresar la llave del nodo 2 y el valor en nodo 1
+        """
         if not punto.m_dirigido:
+            #Se agrega el peso y el nodo
             punto.m_agregando_lista[nodo2].add((nodo1, peso))
-    def print_aproximidad(self):
+    
+    #Añadiendo el diccionario
+    def print_agregando_lista(self):
+        #Se realiza el recorrido
         for key in self.m_agregando_lista.keys():
+            #Imprimira el recorrido con el valor y la llave
             print("union", key, ": ", self.m_agregando_lista[key])
+    
+    #Imprimira el reccorrido BFS
     def interseccion(punto, inicio_vinculo):
         llegadas = set()
         cola = Queue()
