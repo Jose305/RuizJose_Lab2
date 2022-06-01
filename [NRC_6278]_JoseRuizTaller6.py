@@ -90,16 +90,31 @@ ________________________________________________________________________________
     
     #Imprimira el reccorrido BFS
     def interseccion(punto, inicio_vinculo):
+        """Los conjuntos de nodos visitados para no provocar bucles.
+        Se crea un objeto set()
+        El módulo a implementar es el de cola
+        """
         llegadas = set()
         cola = Queue()
+        #Se añade el nodo al inicio de la cola
         cola.put(inicio_vinculo)
+        #Se añade el nodo al inicio de la cola
         llegadas.add(inicio_vinculo)
+        
+        #Se realiza el recorrido mediante el bucle while
         while not cola.empty():
+            #Separa de un vértice
             union_vigente = cola.get()
+            #Determina la cola y lo introduce o imprime
             print(union_vigente, end = " ")
+            
+            #Se obtendra todos los vertices adyacentes
             for (proxima_union, weight) in punto.m_agregando_lista[union_vigente]:
+                """En caso de no ver llegado entonces lo añade"""
                 if proxima_union not in llegadas:
+                    #Vertice quitado
                     cola.put(proxima_union)
+                    #Si no ha pasado se lo añade
                     llegadas.add(proxima_union)
 
 """Se usa para ejecutar el código solo si el archivo se ejecutó directamente y no se importó."""
