@@ -117,19 +117,25 @@ ________________________________________________________________________________
                     #Si no ha pasado se lo añade
                     llegadas.add(proxima_union)
 
-"""Se usa para ejecutar el código solo si el archivo se ejecutó directamente y no se importó."""
+#Main del programa para agregar los bordes o aristas
 if __name__ == "__main__":
+    #Se crea una instancia de la clase Esquema con un total de 5 nodos
+    #Se agrega por defecto el valor 1 en el peso
     g = Esquema(5, determinado=False)
-
+    
+    #Imprime todas las aristas
     g.agregar_arista(0, 1)
     g.agregar_arista(0, 2)
     g.agregar_arista(1, 2)
     g.agregar_arista(1, 4)
     g.agregar_arista(2, 3)
-    g.print_aproximidad()
-
+    
+    #Imprime la lista adyacente
+    g.print_agregando_lista()
+    
+    #Imprime el mensaje del vertice
     print ("A continuación, la primera travesía en profundidad"
                     " (a partir del vértice 0)")
-    
+    #Imprime el recorrido de los niveles
     g.interseccion(0)
     print()
