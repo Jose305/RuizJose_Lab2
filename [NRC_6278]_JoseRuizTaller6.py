@@ -74,30 +74,19 @@ ________________________________________________________________________________
         Si dirigido es falso devolvera True para ingresar como llave el nodo2 y su valor el nodo 1 """        
        
         punto.m_agregando_lista[nodo1].add((nodo2, peso))
-        """Se ubica una condición en caso que no agregue ninguna arista se matendra de forma indirecta con los valores."""
         if not punto.m_dirigido:
-            """Insertara la siguiente arista sucesora"""
             punto.m_agregando_lista[nodo2].add((nodo1, peso))
-    """Imprimira la representacion grafico de los nodos."""
     def print_aproximidad(self):
         for key in self.m_agregando_lista.keys():
             print("union", key, ": ", self.m_agregando_lista[key])
-    """La función de la interseccion se encargara de imprimir el recorrido BFS, desde un vertice de origen es decir el inicio del nodo.
-    para recorrer los vertices."""
     def interseccion(punto, inicio_vinculo):
-        """Dentro de esta función se declara el conjunto de nodos visitados para evitar bucles."""
         llegadas = set()
         cola = Queue()
-        """Va añadiendo al nodo inicial a la cola y a la lista que va visitando"""
         cola.put(inicio_vinculo)
         llegadas.add(inicio_vinculo)
-        """Ingresa en este bucle while si no encuentra la ruta."""
         while not cola.empty():
-            """"Muestra un vertice en la cola y lo imprime"""
             union_vigente = cola.get()
             print(union_vigente, end = " ")
-            """Se obtiene todos los vertices adyacentes de la cola, si un vertice adyacente no ha sido visitado,
-            entonces lo ira marcando y poniendolo en cola."""
             for (proxima_union, weight) in punto.m_agregando_lista[union_vigente]:
                 if proxima_union not in llegadas:
                     cola.put(proxima_union)
@@ -105,20 +94,17 @@ ________________________________________________________________________________
 
 """Se usa para ejecutar el código solo si el archivo se ejecutó directamente y no se importó."""
 if __name__ == "__main__":
-    """Se crea una instancia en la clase esquema en el cual no esta dirigifo y contiene 5 nodos."""
     g = Esquema(5, determinado=False)
 
-    """Se añade todas las aristas"""
     g.agregar_arista(0, 1)
     g.agregar_arista(0, 2)
     g.agregar_arista(1, 2)
     g.agregar_arista(1, 4)
     g.agregar_arista(2, 3)
-    """Imprime la lista de adyacencia"""
     g.print_aproximidad()
-    """Imprime un mensaje con la profundidad que alcanzo el vertice."""
+
     print ("A continuación, la primera travesía en profundidad"
                     " (a partir del vértice 0)")
-    """Imprime los niveles de los nodos del gráfico"""
+    
     g.interseccion(0)
     print()
