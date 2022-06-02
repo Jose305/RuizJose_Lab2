@@ -43,7 +43,6 @@ ________________________________________________________________________________
     """
     #Constructor y los atributos del grafo
     def __init__(punto, tamaño_de_nodos, dirigido=True):
-        
         """
         Parámetros
             (tamaño_de_nodos: int) ==>  acabamiento de nodos de entrada 
@@ -121,7 +120,7 @@ ________________________________________________________________________________
 if __name__ == "__main__":
     #Se crea una instancia de la clase Esquema con un total de 5 nodos
     #Se agrega por defecto el valor 1 en el peso
-    g = Esquema(5, determinado=False)
+    g = Esquema(5, dirigido=False)
     
     #Imprime todas las aristas
     g.agregar_arista(0, 1)
