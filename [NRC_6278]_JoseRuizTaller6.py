@@ -120,14 +120,13 @@ ________________________________________________________________________________
 if __name__ == "__main__":
     #Se crea una instancia de la clase Esquema con un total de 5 nodos
     #Se agrega por defecto el valor 1 en el peso
-    g = Esquema(5, dirigido=False)
+    g = Esquema(4, dirigido=True)
     
     #Imprime todas las aristas
-    g.agregar_arista(0, 1)
-    g.agregar_arista(0, 2)
     g.agregar_arista(1, 2)
-    g.agregar_arista(1, 4)
-    g.agregar_arista(2, 3)
+    g.agregar_arista(0, 2)
+    g.agregar_arista(0, 1)
+    g.agregar_arista(1, 3)
     
     #Imprime la lista adyacente
     g.print_agregando_lista()
